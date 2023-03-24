@@ -21,5 +21,5 @@ phases:
       - docker push 777391067329.dkr.ecr.us-east-1.amazonaws.com/inovcares-prod:latest
       - eval $(aws sts assume-role --role-arn ECS_DEPLOY_ROLE --role-session-name AWSCLI-Session | jq -r '.Credentials | "export AWS_ACCESS_KEY_ID=\(.AccessKeyId)\nexport AWS_SECRET_ACCESS_KEY=\(.SecretAccessKey)\nexport AWS_SESSION_TOKEN=\(.SessionToken)\n"')
       - aws sts get-caller-identity
-      - aws ecs update-service --cluster arn:aws:ecs:us-east-1:777391067329:cluster/opentug-cluster --service  inov-service --force-new-deployment --region us-east-1
+      - aws ecs update-service --cluster arn:aws:ecs:us-east-1:777391067329:cluster/ opentugfresh-cluster --service  inov-service --force-new-deployment --region us-east-1
         # unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN]
